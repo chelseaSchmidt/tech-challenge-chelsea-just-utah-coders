@@ -25,8 +25,8 @@ export default class App extends React.Component {
     const fields = ['Name', 'Email', 'Birth Date'];
     const values = [name, email, birthdate];
     return (
-      <>
-        <div>Contact Us</div>
+      <div id="container">
+        <div id="form-title">Contact Us</div>
         <form id="contact-form">
           {fields.map((field, i) => (
             <TextInput
@@ -36,14 +36,16 @@ export default class App extends React.Component {
               handleTextInput={this.handleTextInput}
             />
           ))}
-          <label htmlFor="agree">
+          <label htmlFor="agree" className="checkbox-label">
             <input type="checkbox" id="agree" name="agree" checked={agree} />
             I agree to be contacted via email.
           </label>
-          <button type="button">Clear</button>
-          <button type="submit">Submit</button>
+          <div id="button-area">
+            <button type="button">Clear</button>
+            <button type="submit">Submit</button>
+          </div>
         </form>
-      </>
+      </div>
     );
   }
 }

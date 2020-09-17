@@ -1,12 +1,13 @@
 import React from 'react';
 import { string } from 'prop-types';
 import { convertLabelToId } from '../utilities/helpers.js';
+import '../styles/TextInput.css';
 
 const TextInput = ({ label, text, handleTextInput }) => {
   const id = convertLabelToId(label);
   return (
     <>
-      <label htmlFor={id}>
+      <label htmlFor={id} className="input-label">
         {label}
         <input
           type="text"
