@@ -12,6 +12,7 @@ export default class App extends React.Component {
       agree: false,
     };
     this.handleTextInput = this.handleTextInput.bind(this);
+    this.handleUserAgreement = this.handleUserAgreement.bind(this);
   }
 
   handleTextInput({ target: { id, value }}) {
@@ -20,10 +21,15 @@ export default class App extends React.Component {
     this.setState(stateCopy);
   }
 
+  handleUserAgreement({ target: { checked } }) {
+    this.setState({ agree: checked });
+  }
+
   render() {
     const { name, email, birthdate, agree } = this.state;
     const fields = ['Name', 'Email', 'Birth Date'];
     const values = [name, email, birthdate];
+
     return (
       <div id="container">
         <div id="form-title">Contact Us</div>
@@ -37,7 +43,13 @@ export default class App extends React.Component {
             />
           ))}
           <label htmlFor="agree" className="checkbox-label">
-            <input type="checkbox" id="agree" name="agree" checked={agree} />
+            <input
+              type="checkbox"
+              id="agree"
+              name="agree"
+              checked={agree}
+              onChange={this.handleUserAgreement}
+            />
             I agree to be contacted via email.
           </label>
           <div id="button-area">
