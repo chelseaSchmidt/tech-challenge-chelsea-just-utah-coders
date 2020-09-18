@@ -16,6 +16,7 @@ export default class App extends React.Component {
     };
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleUserAgreement = this.handleUserAgreement.bind(this);
+    this.clearForm = this.clearForm.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,6 +41,16 @@ export default class App extends React.Component {
         this.setState({ submittable: false });
       }
     }
+  }
+
+  clearForm() {
+    this.setState({
+      name: '',
+      email: '',
+      birthdate: '',
+      agree: false,
+      submittable: false,
+    });
   }
 
   handleTextInput({ target: { id, value } }) {
@@ -90,7 +101,7 @@ export default class App extends React.Component {
             I agree to be contacted via email. *
           </label>
           <div id="button-area">
-            <button type="button">Clear</button>
+            <button type="button" onClick={this.clearForm}>Clear</button>
             <button type="submit" disabled={!submittable}>Submit</button>
           </div>
           <div id="footnote">* Indicates required field</div>
