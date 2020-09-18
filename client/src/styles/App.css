@@ -38,3 +38,8 @@
   margin-top: 10px;
   font-size: 9px;
 }
+
+#success-message {
+  margin-top: 10px;
+  color: green;
+}
